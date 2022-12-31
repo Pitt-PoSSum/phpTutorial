@@ -1,0 +1,10 @@
+.divButton{
+    justify-content: space-between;
+}
+
+xmp, pre{
+    white-space: pre-wrap;
+    background-color: #f6f6f6;
+    padding:1rem;
+    margin: 0 0 1.5rem 0;
+}

@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+
+<definitions name="BlogDefinition"
+             targetNamespace="urn:blogTargetNamespace"
+             xmlns:tns="urn:blogTns"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns="http://schemas.xmlsoap.org/wsdl/">
+
+    <message name="request_set_blog_data">
+        <part name="blog_data" type="xsd:object"/>
+    </message>
+    <message name="response_message">
+        <part name="blog_message" type="xsd:string"/>
+    </message>
+
+    <message name="request_blog_data">
+        <part name="blog_id" type="xsd:integer"/>
+    </message>
+    <message name="response_blog_data">
+        <part name="blog_data" type="xsd:object"/>
+    </message>
+
+    <message name="request_delete_blog_data">
+        <part name="delete_blog_id" type="xsd:integer"/>
+    </message>
+    <message name="response_delete_blog_data">
+        <part name="delete_blog_data" type="xsd:string"/>
+    </message>
+
+    <message name="response_all_blog_data">
+        <part name="all_blog_data" type="xsd:object"/>
+    </message>
+
+    <message name="response_max_blog_id_data">
+        <part name="max_blog_id_data" type="xsd:integer"/>
+    </message>
+
+
+    <portType name="BlogPortType">
+        <operation name="setBlogData">
+            <input message="tns:request_set_blog_data"/>
+            <output message="tns:response_message"/>
+        </operation>
+        <operation name="deleteBlogData">
+            <input message="tns:request_delete_blog_data"/>
+            <output message="tns:response_delete_blog_data"/>
+        </operation>
+        <operation name="getBlogData">
+            <input message="tns:request_blog_data"/>
+            <output message="tns:response_blog_data"/>
+        </operation>
+        <operation name="getAllBlogData">
+            <output message="tns:response_all_blog_data"/>
+        </operation>
+        <operation name="getMaxBlogId">
+            <output message="tns:response_max_blog_id_data"/>
+        </operation>
+    </portType>
+    <binding name="BlogBinding" type="tns:BlogPortType">
+        <soap:binding style="rpc"
+                      transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="setBlogData">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="encoded"
+                           namespace="urn:blogInputNamespace"
+                           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body use="encoded"
+                           namespace="urn:blogOutputNamespace"
+                           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="getAllBlogData">
+            <soap:operation soapAction=""/>
+            <output>
+                <soap:body use="encoded"
+                           namespace="urn:blogOutputNamespace"
+                           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="getMaxBlogId">
+            <soap:operation soapAction=""/>
+            <output>
+                <soap:body use="encoded"
+                           namespace="urn:blogOutputNamespace"
+                           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="getBlogData">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="encoded"
+                           namespace="urn:blogInputNamespace"
+                           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body use="encoded"
+                           namespace="urn:blogOutputNamespace"
+                           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+        <operation name="deleteBlogData">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="encoded"
+                           namespace="urn:blogInputNamespace"
+                           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body use="encoded"
+                           namespace="urn:blogOutputNamespace"
+                           encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="BlogService">
+        <port name="BlogPort" binding="tns:BlogBinding">
+            <soap:address
+                    location="http://phptutorial.localhost/pages/soapServer/SoapServer.php"/>
+        </port>
+    </service>
+</definitions>

@@ -1,0 +1,48 @@
+.divButton{
+    justify-content: space-between;
+}
+
+.letterContainer {
+    display:none;
+    justify-content: center;
+}
+
+.letterContainer.aktivWordle {
+    display:flex;
+}
+
+.letterContainer.pastWordle {
+    display:flex;
+}
+
+.letterContainer div{
+    width:70px;
+}
+
+.letterInput {
+    text-align: center;
+    font-size: 20px;
+    width:44px;
+    height:44px;
+    text-transform: uppercase;
+}
+
+.rightLetter{
+    background-color: green;
+}
+
+.warmLetter{
+    background-color: yellow;
+}
+
+.coldLetter{
+    background-color: grey;
+}
+
+.inputEmpty{
+    border-color: red;
+}
+
+#reloadButton{
+    display:none;
+}
