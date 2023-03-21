@@ -8,7 +8,24 @@ class SOAPBlogRepository implements BlogRepositoryInterface
 
     public function __construct()
     {
-        $wsdl = 'http://phptutorial.localhost/pages/soapServer/rules.wsdl';
+        /*
+        $url = "http://phptutorial.localhost/blog";
+        //$url = "http://www.google.de";
+
+        $curl = curl_init();
+
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_PORT, 8080);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+
+        $response = curl_exec($curl);
+
+        var_dump($response);
+        exit();
+*/
+
+        $wsdl = 'http://phptutorial.localhost:8080/pages/soapServer/rules.wsdl';
         $this->soapClient = new \SoapClient($wsdl, array('soap_version' => SOAP_1_2,'trace' => 1 ));
     }
 

@@ -7,13 +7,15 @@ class Viewer
 
     function __construct()
     {
-        require('/xampp/php/smarty/Smarty.class.php');
+        define('SMARTY_DIR', '/app/phpTutorial/vendor/smarty/smarty/libs' . DIRECTORY_SEPARATOR);
+        define('SMARTY_SYSPLUGINS_DIR', SMARTY_DIR . 'sysplugins' . DIRECTORY_SEPARATOR);
+        require('/app/phpTutorial/vendor/smarty/smarty/libs/Smarty.class.php');
         $this->objSmarty = new \Smarty();
 
-        $this->objSmarty->setTemplateDir('/xampp/htdocs/phpTutorial/smarty/templates');
-        $this->objSmarty->setCompileDir('/xampp/htdocs/phpTutorial/smarty/templates_c');
-        $this->objSmarty->setCacheDir('/xampp/htdocs/phpTutorial/smarty/cache');
-        $this->objSmarty->setConfigDir('/xampp/htdocs/phpTutorial/smarty/configs');
+        $this->objSmarty->setTemplateDir('./phpTutorial/smarty/templates');
+        $this->objSmarty->setCompileDir('./phpTutorial/smarty/templates_c');
+        $this->objSmarty->setCacheDir('./phpTutorial/smarty/cache');
+        $this->objSmarty->setConfigDir('./phpTutorial/smarty/configs');
     }
 
     public function getPageContent($pagename, $out = ''){

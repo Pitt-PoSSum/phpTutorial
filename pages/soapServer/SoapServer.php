@@ -1,7 +1,7 @@
 <?php
 
 ini_set("soap.wsdl_cache_enabled", "0");
-$server = new SoapServer("http://phptutorial.localhost/pages/soapServer/rules.wsdl",
+$server = new SoapServer("http://phptutorial.localhost:8080/pages/soapServer/rules.wsdl",
 array('soap_version' => SOAP_1_2));
 //$server->addFunction('hello');
 $server->setClass('MySoapServer');

@@ -48,10 +48,12 @@ class Blog extends Controller
             }
             $blogData = $this->actionLoad($id);
         }elseif($aktion == 'edit'){
+            #Einen Datensatz laden
             $blogData = $this->actionLoad($id);
         }elseif ($aktion === 'new') {
             $blogData = $this->actionNew();
         }else{
+            #alle Daten laden
             $allBlogdata = $this->actionDefault();
         }
 

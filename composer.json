@@ -1,11 +1,5 @@
 {
-    "require-dev": {
-        "phpunit/phpunit": "^9"
-    },
-    "autoload": {
-        "psr-4": {
-            "pages\\blog\\":"pages/blog",
-            "core\\":"core"
-        }
+    "require": {
+        "smarty/smarty": "^4.3"
     }
 }

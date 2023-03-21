@@ -7,9 +7,9 @@ class ConnectDB
     private $conn;
 
     private function __construct() {
-        $dbHost = "localhost";
-        $dbUser = "root";
-        $dbPass = "";
+        $dbHost = "mysql";
+        $dbUser = "admin";
+        $dbPass = "Resturlaub1.";
         $db = "test";
         $this->conn = new \mysqli($dbHost, $dbUser, $dbPass,$db) or die("Connect failed: %s\n". $this->conn -> error);
     }

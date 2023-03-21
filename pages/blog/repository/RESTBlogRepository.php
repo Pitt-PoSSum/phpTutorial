@@ -5,7 +5,7 @@ class RESTBlogRepository implements BlogRepositoryInterface
 {
     protected $restClient;
     private $infoDetails = [];
-    private $restURL = 'http://phptutorial.localhost/restServer';
+    private $restURL = 'http://phptutorial.localhost:8080/restServer';
 
     public function __construct()
     {

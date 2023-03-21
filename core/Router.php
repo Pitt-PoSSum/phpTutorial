@@ -70,7 +70,11 @@ class Router
             return end($urlParams);
         }else{
             if (is_array($urlParams) && isset($urlParams[0])) {
-                return $urlParams[0];
+                if(is_numeric($urlParams[0]) && isset($urlParams[1])){
+                    return $urlParams[1];    
+                }else{
+                   return $urlParams[0];
+                }
             } else {
                 return null;
             }
