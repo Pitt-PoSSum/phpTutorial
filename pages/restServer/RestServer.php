@@ -2,6 +2,7 @@
 namespace pages\restServer;
 
 use \core\Controller;
+use core\Debug;
 use \core\QuickFunctions;
 
 class RestServer extends Controller
@@ -43,6 +44,10 @@ class RestServer extends Controller
 
     private function setBlogData(){
         $blogData = json_decode(file_get_contents('php://input'), true);
+
+        if(!isset($blogData['id']) || !$blogData['id']){
+            $blogData['id'] = null;
+        }
 
         $data = [
             'id' => $blogData['id'],

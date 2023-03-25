@@ -119,7 +119,7 @@
     <service name="BlogService">
         <port name="BlogPort" binding="tns:BlogBinding">
             <soap:address
-                    location="http://phptutorial.localhost/pages/soapServer/SoapServer.php"/>
+                    location="http://phptutorial.localhost:8080/pages/soapServer/SoapServer.php"/>
         </port>
     </service>
 </definitions>

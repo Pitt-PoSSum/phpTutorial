@@ -32,9 +32,14 @@ class SoapServer_model extends \core\Model
             $blogdata->datum = $date->format('Y-m-d H:i:s');
         }
 
-        $sql = "INSERT INTO blog (id, datum, titel, text, user) ".
-            "VALUES('" . $blogdata->id . "', '" . $blogdata->datum . "', '" . $blogdata->titel . "', '" . $blogdata->text . "', '" . $blogdata->user . "') ".
-            "ON DUPLICATE KEY UPDATE datum='" . $blogdata->datum . "', titel='" . $blogdata->titel . "', text='" . $blogdata->text . "', USER='" . $blogdata->user . "';";
+        if(is_numeric($blogdata->id)){
+            $sql = "INSERT INTO blog (id, datum, titel, text, user) " .
+                "VALUES('" . $blogdata->id . "', '" . $blogdata->datum . "', '" . $blogdata->titel . "', '" . $blogdata->text . "', '" . $blogdata->user . "') " .
+                "ON DUPLICATE KEY UPDATE datum='" . $blogdata->datum . "', titel='" . $blogdata->titel . "', text='" . $blogdata->text . "', USER='" . $blogdata->user . "';";
+        }else{
+            $sql = "INSERT INTO blog (datum, titel, text, user) " .
+                "VALUES('" . $blogdata->datum . "', '" . $blogdata->titel . "', '" . $blogdata->text . "', '" . $blogdata->user . "');";
+        }
 
         if ( $this->conn->query($sql) === TRUE) {
             return $this->conn->insert_id;

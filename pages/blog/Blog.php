@@ -2,7 +2,6 @@
 namespace pages\blog;
 
 use \core\Controller;
-use core\Debug;
 use \core\QuickFunctions;
 use pages\blog\repository\Blogdata;
 use pages\blog\repository\RESTBlogRepository;

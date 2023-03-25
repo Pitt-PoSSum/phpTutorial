@@ -8,8 +8,16 @@ class ConnectDB
 
     private function __construct() {
         $dbHost = "mysql";
+
         $dbUser = "admin";
         $dbPass = "Resturlaub1.";
+
+        #$dbUser = $_ENV["MYSQL_USER"];
+        #$dbPass = $_ENV["MYSQL_PASSWORD"];
+
+        #$dbUser = getenv("MYSQL_USER");
+        #$dbPass = getenv("MYSQL_PASSWORD");
+
         $db = "test";
         $this->conn = new \mysqli($dbHost, $dbUser, $dbPass,$db) or die("Connect failed: %s\n". $this->conn -> error);
     }

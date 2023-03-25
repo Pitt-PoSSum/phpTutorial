@@ -1,6 +1,8 @@
 <?php
 namespace pages\blog\repository;
 
+use core\Debug;
+
 class RESTBlogRepository implements BlogRepositoryInterface
 {
     protected $restClient;

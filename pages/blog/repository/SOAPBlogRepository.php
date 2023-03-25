@@ -1,6 +1,8 @@
 <?php
 namespace pages\blog\repository;
 
+use core\Debug;
+
 class SOAPBlogRepository implements BlogRepositoryInterface
 {
     protected $soapClient;
@@ -9,21 +11,24 @@ class SOAPBlogRepository implements BlogRepositoryInterface
     public function __construct()
     {
         /*
-        $url = "http://phptutorial.localhost/blog";
-        //$url = "http://www.google.de";
+            $url = "http://phptutorial.localhost/blog";
+            //$url = "http://www.google.de";
 
-        $curl = curl_init();
+            $curl = curl_init();
 
-        curl_setopt($curl, CURLOPT_URL, $url);
-        curl_setopt($curl, CURLOPT_PORT, 8080);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+            curl_setopt($curl, CURLOPT_URL, $url);
+            curl_setopt($curl, CURLOPT_PORT, 8080);
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
 
-        $response = curl_exec($curl);
+            $response = curl_exec($curl);
 
-        var_dump($response);
-        exit();
-*/
+            var_dump($response);
+            exit();
+        */
+
+        ini_set('soap.wsdl_cache_enabled',0);
+        ini_set('soap.wsdl_cache_ttl',0);
 
         $wsdl = 'http://phptutorial.localhost:8080/pages/soapServer/rules.wsdl';
         $this->soapClient = new \SoapClient($wsdl, array('soap_version' => SOAP_1_2,'trace' => 1 ));

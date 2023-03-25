@@ -28,9 +28,14 @@ class Model extends \core\Model
             $data['datum'] = $date->format('Y-m-d H:i:s');
         }
 
-        $sql = "INSERT INTO blog (id, datum, titel, text, user) ".
-            "VALUES('" . $data['id'] . "', '" . $data['datum'] . "', '" . $data['titel'] . "', '" . $data['text'] . "', '" . $data['user'] . "') ".
-            "ON DUPLICATE KEY UPDATE datum='" . $data['datum'] . "', titel='" . $data['titel'] . "', text='" . $data['text'] . "', USER='" . $data['user'] . "';";
+        if(is_numeric($data['id'])){
+            $sql = "INSERT INTO blog (id, datum, titel, text, user) ".
+                "VALUES('" . $data['id'] . "', '" . $data['datum'] . "', '" . $data['titel'] . "', '" . $data['text'] . "', '" . $data['user'] . "') ".
+                "ON DUPLICATE KEY UPDATE datum='" . $data['datum'] . "', titel='" . $data['titel'] . "', text='" . $data['text'] . "', USER='" . $data['user'] . "';";
+        }else{
+            $sql = "INSERT INTO blog (datum, titel, text, user) ".
+                "VALUES('" . $data['datum'] . "', '" . $data['titel'] . "', '" . $data['text'] . "', '" . $data['user'] . "');";
+        }
 
         if ( $this->conn->query($sql) === TRUE) {
             return $this->conn->insert_id;
